@@ -40,13 +40,19 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider :virtualbox do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
+  config.vm.provider :virtualbox do |vb|
+    # Don't boot with headless mode
+    # vb.gui = true
+
+    if ENV.has_key?('VAGRANT_RAM')
+      vb.customize ["modifyvm", :id, "--memory", ENV['VAGRANT_RAM']]
+    end
+    # Set CPUS
+    if ENV.has_key?('VAGRANT_CPUS')
+      vb.customize ["modifyvm", :id, "--cpus", ENV['VAGRANT_CPUS']]
+    end
+  end
+
   #
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -68,6 +74,11 @@ Vagrant.configure("2") do |config|
   # An array of symbols representing groups of cookbook described in the Vagrantfile
   # to skip installing and copying to Vagrant's shelf.
   # config.berkshelf.except = []
+  if ENV.has_key?('VAGRANT_HTTP_PROXY')
+    puts "VAGRANT_HTTP_PROXY set, configuring proxy usage..."
+    puts "* Setting global http proxy to #{ENV['VAGRANT_HTTP_PROXY']}"
+    config.vm.provision :shell, :inline => "echo 'export http_proxy=#{ENV['VAGRANT_HTTP_PROXY']}' > /etc/profile.d/proxy.sh"
+  end
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
