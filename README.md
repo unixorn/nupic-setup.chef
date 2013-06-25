@@ -6,6 +6,9 @@ all the pre-requisites required by NuPIC.
 CentOS 6.4 or Amazon Linux.
 For building a vm instance, VirtualBox, Vagrant, and the vagrant-berkshelf plugin.
 
+## Caveats
+As of 2013.06.25, Vagrant 1.2.2 does not work on my OS X 10.8 machine with versions of VirtualBox more recent than 4.2.12.
+
 # Usage
 Install VirtualBox, Vagrant and vagrant-berkshelf on your machine.
 
