@@ -16,11 +16,11 @@
 # limitations under the License.
 #
 # Base settings for the Nupic Cookbook.
-default.nupic.version = '2013.06.14'
+default.nupic.version = '2013.06.27'
 
 default.nupic.packages.ruby.nucleus = {
     'bunny'        => '0.8.0',
-    'fpm'          => '0.4.31',
+    'fpm'          => '0.4.39',
     'trollop'      => '2.0'
 }
 
