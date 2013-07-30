@@ -53,10 +53,10 @@ end
 task :vm_minimize => [ :purge_logs_from_vm, :vm_cleanup_yum ] do
   puts "Zero out free space to minimize size of generated box file"
   puts "It is normal to see an error about no space left on device"
-  sh %{#{VAGRANT} ssh -c 'sudo dd if=/dev/zero of=/EMPTY bs=1M' } do |ok, result|
+  sh %{#{VAGRANT} ssh -c 'sudo dd if=/dev/zero of=/tmp/EMPTY bs=1M' } do |ok, result|
     # Ignore errors
   end
-  sh %{#{VAGRANT} ssh -c 'sudo rm -f /EMPTY' }
+  sh %{#{VAGRANT} ssh -c 'sudo rm -f /tmp/EMPTY' }
 end
 
 task :purge_logs_from_vm do
