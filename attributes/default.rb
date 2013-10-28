@@ -38,6 +38,7 @@ when 'centos'
     'git'          => '1.7.1-3.el6_4.1',
     'htop'         => '1.0.1-2.el6',
     'iotop'        => '0.3.2-3.el6',
+    'ipython'      => '0.10-3.el6',
     'logrotate'    => '3.7.8-16.el6',
     'lsof'         => '4.82-4.el6',
     'man'          => '1.6f-32.el6',
