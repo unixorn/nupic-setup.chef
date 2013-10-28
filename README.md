@@ -7,7 +7,7 @@ CentOS 6.4 or Amazon Linux.
 For building a vm instance, VirtualBox, Vagrant, and the vagrant-berkshelf plugin.
 
 ## Caveats
-As of 2013.06.25, Vagrant 1.2.2 does not work on my OS X 10.8 machine with versions of VirtualBox more recent than 4.2.12.
+As of 2013.10.28, Vagrant 1.3.5 and VirtualBox 4.3.0 are confirmed to work together on OS 10.9.
 
 # Usage
 Install VirtualBox, Vagrant and vagrant-berkshelf on your machine.
