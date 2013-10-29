@@ -5,6 +5,7 @@
 *.gz
 *.tgz
 *.box
+*.lock
 Icon?
 nohup.out
 
